@@ -56,11 +56,11 @@ sum = float(0);
 skewness = []
 for index, val in enumerate(f_y):
 	sum += val
-	skewness.append(sum / (index+1))
-
-print skewness
+	skewness.append(float(1) / (index+1) * (sum / (float(1)/(index+1) * np.sqrt(sum ** 2))) ** 3)
 
 fig = plt.figure()
+fig.suptitle('Simulation for selectivity', fontsize=14, fontweight='bold')
+fig.subplots_adjust(top=0.85, hspace=0.6)
 ax1 = fig.add_subplot(411)
 ax2 = fig.add_subplot(412)
 ax3 = fig.add_subplot(413)
@@ -74,6 +74,7 @@ ax4.set_title('Skewness')
 ax1.set_xlim(0, 100)
 ax2.set_xlim(0, rounds)
 ax3.set_xlim(0, rounds)
+ax3.set_ylim(0, np.max(f_deltas))
 ax4.set_xlim(0, rounds)
 
 ax1.plot(f_omega)
@@ -82,4 +83,6 @@ ax4.plot(skewness)
 
 for i in range(0, 5):
 	ax3.plot(ys[i])
+
+fig.show()
 

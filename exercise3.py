@@ -77,13 +77,10 @@ class receptiveField:
 		for index, om in enumerate(omega):
 			rcpField.append(np.array(om[0:256] - om[256:512]));
 
-		print rcpField
-
 		fig = plt.figure()
 
 		fig.suptitle('Receptive field after 5k, 70k, 110k and 150k iterations', fontsize=14, fontweight='bold')
 		fig.subplots_adjust(top=0.85, wspace=0.3, hspace=0.4, right=0.8)
-
 
 		ax1 = fig.add_subplot(221)
 		ax2 = fig.add_subplot(222)
@@ -91,11 +88,8 @@ class receptiveField:
 		ax4 = fig.add_subplot(224)
 
 		im1 = ax1.imshow(rcpField[0].reshape([16,16]), cmap='RdBu')
-
 		im2 = ax2.imshow(rcpField[1].reshape([16,16]), cmap='RdBu')
-
 		im3 = ax3.imshow(rcpField[2].reshape([16,16]), cmap='RdBu')
-
 		im4 = ax4.imshow(rcpField[3].reshape([16,16]), cmap='RdBu')
 
 		ax1.axis([0, 15, 0, 15])
