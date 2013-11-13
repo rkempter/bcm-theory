@@ -113,9 +113,14 @@ From which we ca dedude that $\frac{\mathrm{d}F}{\mathrm{d}\omega} \propto x y^2
 \begin{figure}[H]
  \centering
  \includegraphics[width = 0.8\textwidth]{../results/exercise22}
- \caption{}
- \label{fig:bild1}
+ \caption{Plot 1 shows the values for the weights after 30000 iterations. Plot 2 shows the evolution of the threshold $\Theta$ over time. Plot 3 shows the output value for the five different gaussians applied to the weight. Plot 4 shows the evolution of the skewness over time.}
+ \label{fig:fig2}
 \end{figure}
+
+Plot 1 in Figure \ref{fig:fig2} shows the clearly the selectivity of the weights. The neuron adjusted its weights such that it reacts only on a certain specific input (in this case, the first gaussian), while for the other inputs, the weights are zero. We could interpret this that the neuron gets selective for a certain area of the input vector. \newline
+For Plot 2 in Figure \ref{fig:fig2}, we applied at each iteration the five different gaussians to the weight. We clearly see how the neuron develops a selectivity for one gaussians, while the output for the others goes to zero. \\
+Plot 3 in Figure \ref{fig:fig2} shows the evolution of the $\Theta$ over the time. $\Theta$ is averaging the p-th power of the postsynaptic firing activity, $\langle y^p \rangle_x$. Out hypothesis is, that until about 10000 iterations, the neuron hasn't developped any selectivity yet, meaning that $y$ is equal for all inputs, therefore the average stays constante. Once the neuron starts being selective, for one input, the output is high, while for the others, the output goes towards zero. Therefore, the average starts being noisy, especially because the high outputs are taken to the power of two. This happens at the moments where we see the strong peaks. \\
+Plot 4 in Figure \ref{fig:fig2} shows the evolution of the skewness over the time. As we showed in Question 2.1, the gradient of the skewness is proportional to the BCM rule. Because BCM does gradient ascent, we can interpret this link the following way: While doing gradient ascent with the BCM learning rule, we are actually maximizing the skewness. Plot 4 emphasizes this hypothesis. The skewness is growing with the number of iterations.
 
 \subsection{Question 2.3}
 
