@@ -124,6 +124,32 @@ Plot 4 in Figure \ref{fig:fig2} shows the evolution of the skewness over the tim
 
 \subsection{Question 2.3}
 
+\begin{figure}[H]
+ \centering
+ \includegraphics[width = 0.8\textwidth]{../results/exercise23}
+ \caption{}
+ \label{fig:bild3}
+\end{figure}
+
+The input is either $x_0 = [1, 0]$ or $x_1 = [0, 1]$, both with probability $\frac{1}{2}$.
+
+\begin{align*}
+	\Theta \approx \langle y^2 \rangle_x = \frac{1}{2} * ((\omega_1 * x_0)^2 + (\omega_2 * x_1)^2) = \frac{1}{2} * (\omega_1^2 + \omega_2^2) \\
+	\langle \dot{\omega_1} \rangle = \langle \eta * x * (y^2 - y * \Theta) \rangle \\
+	= \frac{1}{2} * \eta * [1, 0] * (\omega_1^2 - \omega_1 * \Theta) \\
+	= \frac{1}{2} * \eta * (\omega_1^2 - \omega_1 * \frac{1}{2} * (\omega_1^2 + \omega_2^2)) \\
+	= \frac{1}{2} * \eta * \omega_1 * (\omega_1 - \frac{1}{2} * (\omega_1^2 + \omega_2^2)) \\
+\end{align*}
+
+as well as for $\dot{\omega_2}$:
+
+\begin{align*}
+	\Theta \approx \langle y^2 \rangle_x = \frac{1}{2} * ((\omega_1) * x_0)^2 + (\omega_2 * x_1)^2) = \frac{1}{2} * (\omega_1^2 + \omega_2^2) \\
+	\langle \dot{\omega_2} \rangle = \langle \eta * x * (y^2 - y * \Theta) \rangle \\
+	= \frac{1}{2} * \eta * [0, 1] * (\omega_2^2 - \omega_2 * \Theta) \\
+	= \frac{1}{2} * \eta * (\omega_2^2 - \omega_2 * \frac{1}{2} * (\omega_1^2 + \omega_2^2)) \\
+	= \frac{1}{2} * \eta * \omega_2 * (\omega_2 - \frac{1}{2} * (\omega_1^2 + \omega_2^2)) \\
+\end{align*}
 
 \section{Question 3}
 

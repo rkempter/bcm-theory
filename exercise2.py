@@ -67,22 +67,22 @@ ax3 = fig.add_subplot(413)
 ax4 = fig.add_subplot(414)
 
 ax1.set_title('Weights evolution')
-ax2.set_title('Delta evolution')
-ax3.set_title('Y')
+ax2.set_title('Y')
+ax3.set_title('Theta evolution')
 ax4.set_title('Skewness')
 
 ax1.set_xlim(0, 100)
-ax2.set_xlim(0, rounds)
 ax3.set_xlim(0, rounds)
-ax3.set_ylim(0, np.max(f_deltas))
+ax2.set_xlim(0, rounds)
+ax2.set_ylim(0, np.max(f_deltas))
 ax4.set_xlim(0, rounds)
 
 ax1.plot(f_omega)
-ax2.plot(f_deltas)
+ax3.plot(f_deltas)
 ax4.plot(skewness)
 
 for i in range(0, 5):
-	ax3.plot(ys[i])
+	ax2.plot(ys[i])
 
 fig.show()
 
