@@ -1,0 +1,9 @@
+\begin{thebibliography}{Pat}
+
+\bibitem[Pat]{paterek}
+Arkadiusz Paterek.
+\newblock Improving regularized singular value decomposition for collaborative
+  filtering.
+\newblock {\em Z. angew. Math. Phys.}
+
+\end{thebibliography}

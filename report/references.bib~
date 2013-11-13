@@ -1,0 +1,44 @@
+
+@ARTICLE{zamp,
+  author = {M. Hilpert, D. Stopper, G.H. Jirka},
+  title = {Resonance of a liquid column in a capillary tube},
+  journal = {Z. angew. Math. Phys.}
+  volume = {48}
+  year = {1997}
+  timestamp = {2012.10.21}
+}
+
+@manual{ECSS-E,
+  title = {ECSS-E-10-03A Testing standards},
+  organization = {European Cooperation For Space Standardization}
+}
+
+@manual{cite:polytec,
+  title = {PSV-300 Vibrometer Manual},
+  organization = {Polytec}
+}
+
+@misc{cite:camera,
+      author = "Vision Research",
+      title = "Camera Comparison: Phantom v210",
+      howpublished = "\newline\url{http://www.visionresearch.com/Products/High-Speed-Cameras/Comparison/}"
+}
+
+@article{cite:liquid_vibrometry,
+author = {James Friend and Leslie Yeo},
+collaboration = {},
+title = {Using laser Doppler vibrometry to measure capillary surface waves on fluid-fluid interfaces},
+publisher = {AIP},
+year = {2010},
+journal = {Biomicrofluidics},
+volume = {4},
+number = {2},
+eid = {026501},
+numpages = {5},
+pages = {026501},
+keywords = {capillary waves; Doppler measurement; flow measurement; Mach-Zehnder interferometers; measurement by laser beam; microfluidics; surface acoustic waves; vibration measurement},
+url = {http://link.aip.org/link/?BMF/4/026501/1},
+doi = {10.1063/1.3353329}
+}
+
+author, organization, address, edition, month, year, note.

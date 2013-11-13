@@ -1,0 +1,144 @@
+%
+%
+% begin of preamble
+
+\input{00_preamble/preamble}
+% end of preamble
+% 
+% begin of document
+
+\begin{document}
+\newpage
+
+\section{Exercise 1: Stability }
+
+\subsection{Question 1.1}
+
+We have $x(t) = x_0$ and $ \Theta(t) = \Theta^*$.
+
+\begin{align*}
+	\frac{\mathrm d}{\mathrm d x} \omega = \eta * x_0 * (y^2 - y \Theta) \\
+	\frac{\mathrm d}{\mathrm d x} \omega = \eta * x_0 * (\omega^2 * x_0^2 - \omega* x_0 * \Theta^*) \\
+	\frac{\mathrm d}{\mathrm d x} \omega = \eta * x_0^2 * \omega * (\omega * x_0 - \Theta^*) \\
+\end{align*}
+
+
+Fix point when $\frac{\mathrm d}{\mathrm d x} \omega = 0$
+
+\begin{align*}
+	0 = \eta * x_0^2 * \omega * (\omega * x_0 - \Theta^*) \\
+	\Theta^* = \omega * x_0 = y
+\end{align*}
+
+From this we can see that the $\omega$ is not bounded and diverges.
+
+\begin{align*}
+	\Theta(t) = \frac{1}{\tau} * \int_{-\infty}^{t} y^p (s)\exp(-\frac{t-s}{\tau}) \mathrm{d}s \\
+	\dot{\omega} = \eta * x * (y^2 - y * \Theta) \\
+	\tau * \dot{\Theta_M} = - \Theta_M + y^p \\
+\end{align*}
+
+Fix points if $\frac{\mathrm{d}\omega}{\mathrm{d}t} = 0$ and $\frac{\mathrm{d}\Theta_M}{\mathrm{d}t} = 0$
+
+\begin{align*}
+	\Theta_M = y^p - \tau * \frac{\mathrm{d}\Theta_M}{\mathrm{d}t} \\
+	0 = \eta * x_0 * (y^2 - y * y^p) \\
+	0 = \eta * x_0 * y^2 *(1-y^{p-1}) \\
+	0 = \eta * x_0 * y^2 *(1-(\omega*x_0)^{p-1}) \\
+	\frac{1}{x_0^{p-1}} = \omega^{p-1} \\
+\end{align*}
+
+And we see that for $p > 1$, $\omega$ converges to $\frac{1}{x_0}$, whereas for $p = 1$, $\omega$ converges to $0$.
+
+\subsection{Question 1.2}
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[width = 0.8\textwidth]{../results/exercise12}
+ \caption{After convergence, the weight is adjusted such that applying $x_0$, $y = \omega$ and we observe that $\omega = \frac{1}{z}$, whereas $z$ is the probability of $x_0 = 1$}
+ \label{fig:bild1}
+\end{figure}
+
+\subsection{Question 1.3}
+
+We have a linear neuron $y = \omega * x$
+
+\subsubsection{Show that $\Theta = \langle y^2 \rangle_x = z * y_0^2$}
+
+\begin{align*}
+	\Theta(t) = \frac{1}{\tau} * \int_{-\infty}^{t} y^p (s)\exp(-\frac{t-s}{\tau}) \mathrm{d}s \\
+	\Theta(t) \approx \langle y^p \rangle_t \approx \langle y^p \rangle_x \\
+	\Theta(t) = \frac{1}{\tau} * y^2 \int_{-\infty}^t exp(-\frac{t-s}{\tau}) \mathrm{d}s \\
+	\Theta(t) = \frac{1}{\tau} * y^2 * \big{[} \frac{\tau}{s} * \exp(-\frac{t-s}{\tau}) \big{]_{-\infty}^t} \\
+	\Theta(t) = \frac{1}{t} * y^2 = \langle y^2 \rangle = \langle (\omega * x)^2 \rangle
+\end{align*}
+
+When applying an input $x_0$ with a probability of $z$, then the average at the output is $z * y_0$ where $y_0 = \omega * x_0$, as we can see in the last equation.
+
+\subsubsection{Show that $\langle \frac{\mathrm{d}\omega}{\mathrm{d}t} \rangle = \eta * z * x_0 * y_0^2 * (1 - z * y_0)$}
+
+\begin{align*}
+	\frac{\mathrm{d}\omega}{\mathrm{d}t} = \eta * x * (y^2 - y * \Theta) \\
+	\langle \frac{\mathrm{d}\omega}{\mathrm{d}t} \rangle = \langle \eta * x * (y^2 - y * \Theta) \rangle \\
+	\langle \frac{\mathrm{d}\omega}{\mathrm{d}t} \rangle = \eta * \langle x * (y^2 - y * z * y_0^2) \rangle \\
+	\langle \frac{\mathrm{d}\omega}{\mathrm{d}t} \rangle = = \eta * z * x_0 * y_0^2 * (1- z * y_0) \\
+\end{align*}
+
+\section{Question 2}
+
+\subsection{Question 2.1}
+
+\begin{align*}
+	F(\omega) = \langle (\frac{y}{\sigma_y})^3 \rangle \\
+	\frac{\mathrm{d}F}{\mathrm{d}\omega}(\omega) = \langle \frac{\mathrm{d}{\mathrm{d}\omega}}(\frac{y}{\sigma_y})^3 \rangle \\
+	= \langle 3 * (\frac{y}{\sigma_y})^2 * \frac{\frac{\mathrm{d}y}{\mathrm{d}\omega}*\sigma_y - y * \frac{\mathrm{d}}{\mathrm{d}*\omega}\sigma_y}{\sigma_y^2} \rangle \\
+	= \langle 3 * (\frac{y^2}{\langle y^2 \rangle}) * \frac{x* \sigma_y - y * \frac{1}{\sigma_y} * \langle 2 * y * x \rangle}{\sigma_y^2} \rangle \\
+	= \langle \frac{3 * y^2 * x}{\sigma_y^3} - \frac{3 * y^3 * \langle y * x \rangle}{\sigma_y^5} \rangle \\
+	= \langle \frac{3 * y^2 * x}{\sigma_y^3} \rangle - \frac{\langle y^3 \rangle}{\langle y^2 \rangle} * \frac{\langle y * x \rangle}{\sigma_y^3} \\
+\end{align*}
+$\Theta$ is equal to $\frac{\langle y^3 \rangle}{\langle y^2 \rangle}$, therefore we can write:
+
+\begin{align*}
+	= \frac{3}{\sigma_y^3} * \langle y^2 * x \rangle - \Theta * \langle x * y \rangle \\
+	= \frac{3}{\sigma_y^3} * \frac{1}{n} * \sum_{i}^{n} y^2*x - \Theta * \frac{1}{n} * \sum_{i}^{n} x * y \\
+\end{align*}
+This is the batch rule. We can transform this to an online rule:
+\begin{align*}
+	= \frac{3}{\sigma_y^3} * y^2*x - \Theta * x * y
+\end{align*}
+From which we ca dedude that $\frac{\mathrm{d}F}{\mathrm{d}\omega} \propto x y^2 - x y\Theta$
+
+\subsection{Question 2.2}
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[width = 0.8\textwidth]{../results/exercise222}
+ \caption{}
+ \label{fig:bild1}
+\end{figure}
+
+\subsection{Question 2.3}
+
+
+\section{Question 3}
+
+Figure \ref{bil4} and \ref{bild3} are two examples of a receptive field formation in a BCM neuron. In both examples, it is clearly visible to which of the pixels the neuron is specialized.
+
+More discussion needed...
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[width = 0.8\textwidth]{../results/exercise3b}
+ \caption{}
+ \label{fig:bild3}
+\end{figure}
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[width = 0.8\textwidth]{../results/exercise3c}
+ \caption{}
+ \label{fig:bild4}
+\end{figure}
+
+
+\end{document}

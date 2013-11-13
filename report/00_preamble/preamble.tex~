@@ -1,0 +1,195 @@
+% begin of preamble
+
+% define general document properties
+\documentclass[12pt,a4paper]{article}	% peut remplacer article par "report"," book"
+% si report, plus joli de mettre le package "fnychap" et utiliser "chapter" comme premier (et non pas "section")
+	%\usepackage[Lenny]{fncychap}	% Lenny, Sonny, PetersLenny, Glenn, Conny, Rejne, Bjarne, Bjornstrup
+%\usepackage[utf8]{inputenc} % make content UTF8
+\usepackage[latin1]{inputenc} % make content ISO-8859-1
+\usepackage[T1]{fontenc} % to use with latin1, gives all the umlaute
+
+%define borders of page like in word :)
+\usepackage{geometry} 
+\geometry{a4paper,left=25mm, right=25mm, top=25mm, bottom=25mm}
+
+% use for math stuff
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%add the "absolute value" and the "norm value" signs
+%\providecommand{\abs}[1]{\lvert#1\rvert}
+%\providecommand{\norm}[1]{\lVert#1\rVert}
+
+% select the language for the report
+%\usepackage[ngerman, english, francais]{babel} % LAST language (english) is the main language (table of contents, annexes, ...); other languages can be used (special characters...)
+
+% macro definition for exponential and unit formatting
+\newcommand{\e}[1]{\ensuremath{\times 10^{#1}}}
+\newcommand{\unit}[1]{\ensuremath{\, \mathrm{#1}}}
+
+% configure graphics
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\graphicspath{{Images/}} % Path Where images reside
+\usepackage[process=auto,crop=pdfcrop]{pstool}	% by Basil for the matlabfrag script
+\usepackage{float}
+\DeclareGraphicsExtensions{.png,.jpeg,.pdf,.jpg} % Valide image format extensions
+
+% allows the coloration of text and defines custom colors
+\usepackage{color}
+ 
+\definecolor{darkblue}{rgb}{0, 0, 0.6}
+\definecolor{darkgreen}{rgb}{0, 0.6, 0}
+\definecolor{darkred}{rgb}{0.7, 0, 0}
+\definecolor{gold}{rgb}{0.6, 0.6, 0}
+
+% allows to use slasboxes in tables
+\usepackage{slashbox}
+
+% use external pdf pages
+\usepackage{pdfpages}
+
+%  setup multicolumn and float
+\usepackage{multicol} % Multiple Columns
+\usepackage{multirow}
+%\usepackage{subfig} % Use modern subfig instead of subfigure
+
+%configure citations
+\usepackage[numbers, comma]{natbib}
+
+
+% use watermarks to mark draft
+%\usepackage[firstpage]{draftwatermark}		% only the first page
+%\usepackage{draftwatermark}		% all pages
+%\SetWatermarkScale{5}
+%\SetWatermarkLightness{0.8}
+%\SetWatermarkText{!DRAFT!}
+
+% make subsubsubsection(=parapraph) come real on table of contents and be numerated
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+%adds the EURO-symbol: \euro
+\usepackage{eurosym}
+
+%new definition of table, where you can adjust the width of a cell: \begin{tabular}{|C{2cm}|}
+\usepackage{tabularx}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{L}[1]{>{\raggedleft\arraybackslash}p{#1}} 
+
+% make hyperlinks of table of contents to sections, references (bibliography), URLs
+ \usepackage{hyperref}
+ \hypersetup{
+ 	colorlinks=true,
+	linkcolor = darkblue,
+	citecolor = darkgreen,
+	filecolor = gold,
+	urlcolor = darkred,
+	linktoc = section,
+ }
+
+ \usepackage{floatflt}
+% correct bad hyphenation here
+\hyphenation{}
+
+%name the pictures and formulas with the corresponding chapter
+%\numberwithin{equation}{section}
+%\numberwithin{figure}{section}
+%\numberwithin{table}{section}
+%\numberwithin{footnote}{section}
+
+\usepackage{wrapfig}
+
+
+%\usepackage{subfigure}
+
+%define the degree(in angle) and degree celsius symbols (°C)
+\usepackage{xspace}
+\newcommand{\degree}{\ensuremath{\,^{\circ}}\xspace}
+\newcommand{\degreeCelsius}{\ensuremath{\,^{\circ}\mathrm{C}}\xspace}
+
+%Color, example for only a section: {\color{red} This is very important!}
+\usepackage{color}
+
+%adds a lot of the symbols of http://www.ctan.org/tex-archive/info/symbols/comprehensive/symbols-a4.pdf
+\usepackage{pifont}
+
+%adds the "born" and "died" symbols: \textborn, \textdied
+\usepackage{textcomp}
+
+%my own page number counter
+\newcounter{romanPagenumber}
+
+
+%%%%  enlever la numérotation des références dans la bibliographie
+\makeatletter
+ \renewcommand\@biblabel[1]{}
+ \makeatother
+ 
+ 
+ 
+ %for the summary
+ 
+ %setup multicolumn and float
+\usepackage{multicol} % Multiple Columns
+%\usepackage{subfig} % Use modern subfig instead of subfigure
+
+%configure citations
+%\usepackage[round]{natbib}
+%\usepackage[twoside,citeonce(page),citeonce(chapter)]{footbib}
+
+
+
+%Pour les en-tetes
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+%\renewcommand\headrulewidth{5pt}
+\fancyhead[L]{\footnotesize{ECOLE POLYTECHNIQUE FEDERALE DE LAUSANNE \\ENAC
+}}
+\fancyhead[C]{\footnotesize{}}
+\fancyhead[R]{\footnotesize{LOCALISATION PAR SATELLITES\\}}
+	%Pour avoir le numero de page 1/ x
+	%\usepackage{lastpage}
+	%\fancyfoot[C]{\thepage/\pageref{LastPage}}
+%\fancyfoot[C]{Rubrique \LaTeX}
+%\fancyfoot[R]{\today}
+ 
+ 
+\usepackage{listings} 
+
+\definecolor{colKeys}{rgb}{0,0,1} 
+\definecolor{colIdentifier}{rgb}{0,0,0} 
+\definecolor{colComments}{rgb}{0,0.7,0} 
+\definecolor{colString}{rgb}{0.6,0.1,0.1} 
+
+\lstset{%configuration de listings 
+float=hbp,% 
+basicstyle=\ttfamily\small, % 
+identifierstyle=\color{colIdentifier}, % 
+keywordstyle=\color{colKeys}, % 
+stringstyle=\color{colString}, % 
+commentstyle=\color{colComments}, % 
+columns=flexible, % 
+tabsize=2, % 
+frame=simple, % none, shadowbox, simple, double, lines
+frameround=tttt, % 
+extendedchars=true, % 
+showspaces=false, % 
+showstringspaces=false, % 
+numbers=left, % none, left
+numberstyle=\tiny, % 
+breaklines=true, % 
+breakautoindent=true, % 
+captionpos=b,% 
+xrightmargin=1cm, % 
+xleftmargin=1cm 
+} 
+
+%% include graphical storage
+\graphicspath{{./images/}{./images_tpx/}}
+
+\EndPreamble
+% end of preamble
+% ----------------------------------------------------------------------------------------------------------------

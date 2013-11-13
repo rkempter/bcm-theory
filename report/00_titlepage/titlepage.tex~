@@ -1,0 +1,40 @@
+\begin{flushright}
+\includegraphics[width=3cm]{Logos/logo_epfl_coul-crop}
+\end{flushright}
+
+\vspace{1cm}
+
+\begin{center}
+
+\vspace{1cm}
+
+\LARGE
+--GPS Methods--
+
+\vspace{2cm}
+
+--Measurements and processing of data--
+
+\vspace{1cm}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.6\textwidth]{Images/skyplot}
+%\caption{HERE_TEXT}
+\label{fig:skyplot}
+\end{figure}
+\large
+Group G:\\
+
+\vspace{0.5cm}
+
+Clausen Philipp\\
+Huber Basil\\
+
+\vspace{1cm}
+
+19.11.2012\\
+
+
+\end{center}
+\normalsize
